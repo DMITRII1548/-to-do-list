@@ -13,6 +13,12 @@
       .navigation {
         float: left;
       }
+      .pagination {
+        float: left;
+      }
+      .button-add {
+        float: right;
+      }
     </style>
 </head>
 <body>
@@ -57,7 +63,10 @@
           @endforeach
         </tbody>
       </table>
-      <a class="btn btn-primary" href="{{ route('tasks.create') }}">Add</a>
+      <a class="button-add btn btn-primary" href="{{ route('tasks.create') }}">Add</a>
+      <div class="pagination">
+        {{ $tasks->appends(['search' => request()->search])->links() }}
+      </div>
 </div>
 </body>
 </html>
