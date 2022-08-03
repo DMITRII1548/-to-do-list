@@ -7,14 +7,14 @@ use App\Http\Requests\Task\StoreRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class StoreController extends BaseTaskController
 {
     
     public function __invoke (StoreRequest $request, Task $task)
     {
         $task = $request->validated();
 
-        Task::create($task);
+        $this->service->store($task);
         
         return redirect()->route('tasks.index');
     }

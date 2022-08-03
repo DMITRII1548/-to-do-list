@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
-class EditController extends Controller
+class EditController extends BaseTaskController
 {
     
     public function __invoke (Task $task)

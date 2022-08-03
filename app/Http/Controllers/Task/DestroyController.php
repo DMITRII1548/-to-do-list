@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
-class DestroyController extends Controller
+class DestroyController extends BaseTaskController
 {
      
     public function __invoke (Task $task)
     {
-        $task->delete();
+        $this->service->destroy($task);
 
         return redirect()->route('tasks.index');
     }
