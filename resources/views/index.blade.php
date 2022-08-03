@@ -6,9 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <style>
+      #search {
+        float: right;
+      }
+      .navigation {
+        float: left;
+      }
+    </style>
 </head>
 <body>
 <div class="container">
+    <div class="navigation mt-2">
+      <nav  class="navbar navbar-expand-lg navbar-light bg-light"><a  class="navbar-brand" href="{{ route('tasks.index') }}">Home</a></nav>
+    </div>
+    <form action="{{ route('tasks.search') }}" method="get" id="search">
+      <div class="form-group mt-3 mb-3">
+        <label for="search">
+          Search
+        <input type="text" name="search" placeholder="Search"></label>
+        <input type="submit" value="Search" class="btn btn-info">
+      </div>
+      
+    </form>
     <table class="table table-dark table-striped">
         <thead>
           <tr>

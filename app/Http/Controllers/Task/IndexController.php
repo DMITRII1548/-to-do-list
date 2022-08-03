@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Task;
 
 use App\Http\Controllers\Controller;
-use App\Models\Task;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class IndexController extends BaseTaskController
 {
     public function __invoke ()
     {
-        $tasks = Task::all();
+        $tasks = $this->service->index();
         return view('index', compact('tasks'));
     }
 }
