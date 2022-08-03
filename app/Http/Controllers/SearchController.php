@@ -7,14 +7,13 @@ use App\Http\Requests\SearchRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
-class SearchController extends Controller
+class SearchController extends BaseSearchController
 {
     //this controller find task for title
     public function __invoke (SearchRequest $request)
     {
         $title = $request->validated();
-        $title = $title['search'];
-        $tasks = Task::where("title", 'LIKE', "%{$title}%")->get();
+        $tasks = $this->service->search($title);
         return view('index', compact('tasks'));
     }
     
