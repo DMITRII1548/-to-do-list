@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Search;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Search\BaseSearchController;
 use App\Http\Requests\SearchRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;

@@ -9,7 +9,7 @@ class TaskService
 
     public function index ()
     {
-        return Task::all();
+        return Task::paginate(50);
     }
 
     public function store ($task)
