@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\Search\SearchController;
 use App\Http\Controllers\Task\CreateController;
 use App\Http\Controllers\Task\DestroyController;
 use App\Http\Controllers\Task\EditController;
 use App\Http\Controllers\Task\IndexController;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Task\ShowController;
 use App\Http\Controllers\Task\StoreController;
 use App\Http\Controllers\Task\UpdateController;
