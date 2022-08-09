@@ -10,6 +10,6 @@ class ShowController extends BaseTaskController
 {
     public function __invoke (Task $task)
     {
-        return view('show', compact('task'));
+        return view('task.show', compact('task'));
     }
 }

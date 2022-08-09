@@ -10,6 +10,6 @@ class IndexController extends BaseTaskController
     public function __invoke ()
     {
         $tasks = $this->service->index();
-        return view('index', compact('tasks'));
+        return view('task.index', compact('tasks'));
     }
 }
