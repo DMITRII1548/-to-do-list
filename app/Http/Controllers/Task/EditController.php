@@ -11,7 +11,7 @@ class EditController extends BaseTaskController
     
     public function __invoke (Task $task)
     {
-        return view('edit', compact('task'));
+        return view('task.edit', compact('task'));
     }
 
 }

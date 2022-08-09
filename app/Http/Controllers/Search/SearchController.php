@@ -15,7 +15,7 @@ class SearchController extends BaseSearchController
     {
         $title = $request->validated();
         $tasks = $this->service->search($title);
-        return view('index', compact('tasks'));
+        return view('task.index', compact('tasks'));
     }
     
 }
