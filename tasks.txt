@@ -1,2 +1,0 @@
-add pagination 
-add search

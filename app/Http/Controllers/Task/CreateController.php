@@ -10,7 +10,7 @@ class CreateController extends BaseTaskController
 
     public function __invoke ()
     {
-        return view('create');
+        return view('task.create');
     }
     
 }

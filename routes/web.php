@@ -1,13 +1,6 @@
 <?php
 
 use App\Http\Controllers\Search\SearchController;
-use App\Http\Controllers\Task\CreateController;
-use App\Http\Controllers\Task\DestroyController;
-use App\Http\Controllers\Task\EditController;
-use App\Http\Controllers\Task\IndexController;
-use App\Http\Controllers\Task\ShowController;
-use App\Http\Controllers\Task\StoreController;
-use App\Http\Controllers\Task\UpdateController;
 use Faker\Calculator\TCNo;
 use Illuminate\Support\Facades\Route;
 use Whoops\Run;
@@ -27,12 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', IndexController::class)->name('tasks.index');
-Route::get('/tasks/create', CreateController::class)->name('tasks.create');
-Route::post('/tasks', StoreController::class)->name('tasks.store');
-Route::get('/tasks/{task}', ShowController::class)->name('tasks.show');
-Route::get('/tasks/{task}/edit', EditController::class)->name('tasks.edit');
-Route::patch('/tasks/{task}', UpdateController::class)->name('tasks.update');
-Route::delete('/tasks/{task}', DestroyController::class)->name('tasks.destroy');
+Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
+    Route::get('/tasks', 'IndexController')->name('tasks.index');
+    Route::get('/tasks/create', 'CreateController')->name('tasks.create');
+    Route::post('/tasks', 'StoreController')->name('tasks.store');
+    Route::get('/tasks/{task}', 'ShowController')->name('tasks.show');
+    Route::get('/tasks/{task}/edit', 'EditController')->name('tasks.edit');
+    Route::patch('/tasks/{task}', 'UpdateController')->name('tasks.update');
+    Route::delete('/tasks/{task}', 'DestroyController')->name('tasks.destroy');
+});
 
 Route::get('/search', SearchController::class)->name('tasks.search');
