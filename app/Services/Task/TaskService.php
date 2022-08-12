@@ -9,11 +9,12 @@ class TaskService
 
     public function index ()
     {
-        return Task::paginate(50);
+        return Task::where('user_id', auth()->user()->id)->paginate(50);
     }
 
     public function store ($task)
     {
+        $task = $task + ['user_id' => auth()->user()->id];
         Task::create($task);
     }
 
