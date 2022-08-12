@@ -10,7 +10,7 @@ class SearchService
     public function search ($title)
     {
         $title = $title['search'];
-        return $tasks = Task::where("title", 'LIKE', "%{$title}%")->paginate(50);
+        return $tasks = Task::where('user_id', auth()->user()->id)->where("title", 'LIKE', "%{$title}%")->paginate(50);
     }
 
 }
