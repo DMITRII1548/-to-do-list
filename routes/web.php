@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Search\SearchController;
 use Faker\Calculator\TCNo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Whoops\Run;
 
@@ -15,10 +17,8 @@ use Whoops\Run;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+Route::get('/', [HomeController::class, 'index']);
 
 Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
     Route::get('/tasks', 'IndexController')->name('tasks.index');
@@ -31,3 +31,5 @@ Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
 });
 
 Route::get('/search', SearchController::class)->name('tasks.search');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
