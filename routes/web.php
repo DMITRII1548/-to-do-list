@@ -18,9 +18,9 @@ use Whoops\Run;
 |
 */
 Auth::routes();
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('auth');
 
-Route::group(['namespace' => 'App\Http\Controllers\Task'], function() {
+Route::group(['namespace' => 'App\Http\Controllers\Task', 'middleware' => 'user'], function() {
     Route::get('/tasks', 'IndexController')->name('tasks.index');
     Route::get('/tasks/create', 'CreateController')->name('tasks.create');
     Route::post('/tasks', 'StoreController')->name('tasks.store');
